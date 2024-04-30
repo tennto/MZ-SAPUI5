@@ -1,0 +1,15 @@
+<mvc:View
+    controllerName="ui5.walkthrough.controller.ClickPanel"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Panel headerText="{i18n>clickPanelTitle}"
+                               class="sapUiResponsiveMargin"
+                               width="auto">
+        <content>
+            <Button id="clickDialogButton" text="{i18n>openDialogButtonText}" press=".onOpenDialog" class="sapUiSmallMarginEnd" icon="sap-icon://ai"/>
+            <Button text="{i18n>showClickButtonText}" press=".onShowClick" class="myCustomButton"/>
+            <Input value="{/recipient/name}" valueLiveUpdate="true" width="50%"/>
+            <FormattedText htmlText="당신의 입력: {/recipient/name}" class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
+        </content>
+    </Panel>
+</mvc:View>

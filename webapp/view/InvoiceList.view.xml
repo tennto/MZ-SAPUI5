@@ -1,0 +1,31 @@
+<mvc:View controllerName="ui5.walkthrough.controller.InvoiceList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <List headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{ path : 'invoice>/Invoices', sorter:{ path : 'ProductName' }}" id="invoiceList">
+
+        <headerToolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceListTitle}"/>
+                <ToolbarSpacer />
+                <SearchField width="50%" search=".onFilterInvoices"/>
+            </Toolbar>
+        </headerToolbar>
+
+        <items>
+            <ObjectListItem title="수량 : {invoice>Quantity} EA  |  제품 : {invoice>ProductName}" number="{
+                parts: ['invoice>ExtendedPrice','view>/currency'],
+                type : 'sap.ui.model.type.Currency',
+                formatOptions: {
+                    showMeasure : false
+                }
+            }" numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 5000 ? 'Error' : 'Success' }">
+                <firstStatus>
+                    <ObjectStatus text="{
+                            path: 'invoice>Status',
+                            formatter: '.formatter.statusText'
+                        }"/>
+                </firstStatus>
+            </ObjectListItem>
+        </items>
+    </List>
+</mvc:View>
