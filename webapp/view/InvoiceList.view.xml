@@ -13,7 +13,7 @@
 
         <items>
             <ObjectListItem title="수량 : {invoice>Quantity} EA  |  제품 : {invoice>ProductName}" number="{
-                parts: ['invoice>ExtendedPrice','view>/currency'],
+                parts: ['invoice>ExTendedPrice','view>/currency'],
                 type : 'sap.ui.model.type.Currency',
                 formatOptions: {
                     showMeasure : false
